@@ -11,7 +11,6 @@
 auto main(int argc, char **argv) -> int
 {
     auto count = 20;
-    int j;
     /**
      * CLI11 is a command line parser to add command line options
      * More info at https://github.com/CLIUtils/CLI11#usage
@@ -39,17 +38,18 @@ auto main(int argc, char **argv) -> int
     for (int i = 0; i < count; ++i) {
         std::cout << v[i] << " ";
     }
+    int j;
     for (int i = 0; i < count; i++)
     {
         int min_pos = i;
         for (j = i+1; j < count; j++){
             if (v[j] < v[min_pos])
-                min_pos = j; 
-        
+                min_pos = j;
         }
-    std::cout << "Mein Vektor mit zufälligen Zahlen: ";
-        std::cout <<v[j] << " ";          
-    }
+             
+    } 
+    std::cout << "Mein Vektor mit sortierten Zahlen: ";
+        std::cout <<v[j] << " ";
    
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
