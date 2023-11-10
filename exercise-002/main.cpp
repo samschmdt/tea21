@@ -46,7 +46,7 @@ auto main(int argc, char **argv) -> int
         for (int j = i+1; j < count; j++){
             if (v[j] < v[min_pos])
                 min_pos = j;
-        std::cout <<v[i] << " ";
+        std::cout <<v[j] << " ";
         }
      }    
    
