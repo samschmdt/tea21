@@ -31,14 +31,24 @@ auto main(int argc, char **argv) -> int
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> verteilung(1, 100);
-    for (int i = 0; i < 20; ++i) {
+    for (int i = 0; i < count; ++i) {
         v[i] = verteilung(gen);
     }
     std::cout << "Mein Vektor mit zufälligen Zahlen: ";
-    for (int i = 0; i < 20; ++i) {
+    for (int i = 0; i < count; ++i) {
         std::cout << v[i] << " ";
     }
-
+    for (int i = 0; i < count; i++)
+    {
+        int min_pos = i;
+        for (int j = i+1; j < count; j++){
+            if (v[j] < v[min_pos])
+                min_pos = j; 
+        std::cout <<v[j] << " ";
+        }
+              
+    }
+   
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
