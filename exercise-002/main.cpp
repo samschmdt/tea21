@@ -3,9 +3,14 @@
 
 #include "CLI/CLI.hpp"
 #include "config.h"
+#include <vector>
+#include <random>
+#include <iostream>
+
 
 auto main(int argc, char **argv) -> int
 {
+    auto count = 20;
     /**
      * CLI11 is a command line parser to add command line options
      * More info at https://github.com/CLIUtils/CLI11#usage
@@ -14,11 +19,24 @@ auto main(int argc, char **argv) -> int
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
+        app.add_option("-c, --count", count, fmt::format("Create a vector with the given size default: {}",count));
         app.parse(argc, argv);
     }
     catch (const CLI::ParseError &e)
     {
         return app.exit(e);
+    }
+
+    std::vector <int> v(count);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> verteilung(1, 100);
+    for (int i = 0; i < 20; ++i) {
+        v[i] = verteilung(gen);
+    }
+    std::cout << "Mein Vektor mit zufälligen Zahlen: ";
+    for (int i = 0; i < 20; ++i) {
+        std::cout << v[i] << " ";
     }
 
     /**
