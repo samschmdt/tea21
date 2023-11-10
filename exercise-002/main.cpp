@@ -38,18 +38,17 @@ auto main(int argc, char **argv) -> int
     for (int i = 0; i < count; ++i) {
         std::cout << v[i] << " ";
     }
-    int j;
-    for (int i = 0; i < count; i++)
-    {
+             
+    
+    std::cout << "Mein Vektor mit sortierten Zahlen: ";
+     for (int i = 0; i < count; i++){
         int min_pos = i;
-        for (j = i+1; j < count; j++){
+        for (int j = i+1; j < count; j++){
             if (v[j] < v[min_pos])
                 min_pos = j;
+        std::cout <<v[min_pos] << " ";
         }
-             
-    } 
-    std::cout << "Mein Vektor mit sortierten Zahlen: ";
-        std::cout <<v[j] << " ";
+     }    
    
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
